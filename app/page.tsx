@@ -1,90 +1,92 @@
-import Image from 'next/image';
-
 const experienceCards = [
-  'Gentle morning grounding',
-  '80s-inspired joy and music',
-  'Creative expression',
-  'Spiritual reflection',
-  'Nervous system support',
-  'Beach, beauty, laughter, and connection'
-];
-
-const forWho = [
-  'Neurodivergent adults',
-  'Deep feelers and highly sensitive people',
-  'Creative souls',
-  'People craving community without pressure',
-  'Anyone ready for a reset in a safe, uplifting environment'
+  {
+    title: 'Guided awareness practices',
+    copy: 'Breathwork, grounding, and gentle spiritual rituals that help your body and mind soften into the present.'
+  },
+  {
+    title: 'Neurodivergent-friendly connection',
+    copy: 'Consent-based community moments with space for solitude, reduced social pressure, and sensory-aware pacing.'
+  },
+  {
+    title: '80s-inspired joy and play',
+    copy: 'Neon nostalgia, expressive movement, music, and playful energy to wake up your spirit without overwhelm.'
+  },
+  {
+    title: 'Reflection, creativity, and nervous system calm',
+    copy: 'Journaling, art, and integration practices designed to support regulation, clarity, and transformation.'
+  }
 ];
 
 export default function Home() {
   return (
     <main className="page">
+      <div className="bg-gradient" />
       <div className="bg-glow bg-glow--pink" />
-      <div className="bg-glow bg-glow--cyan" />
+      <div className="bg-glow bg-glow--violet" />
+      <div className="bg-glow bg-glow--blue" />
 
-      <section className="container hero card">
-        <Image
-          src="/love-storm-logo.svg"
-          alt="Love Storm Retreats logo"
-          width={220}
-          height={220}
-          className="logo"
-          priority
-        />
-        <p className="eyebrow">Love Storm Retreats</p>
-        <h1>Love Storm Retreats</h1>
-        <p className="lead">
-          A vibrant retreat experience for neurodivergent and sensitive souls ready to reconnect,
-          reset, and feel fully alive.
+      <section className="hero container">
+        <p className="hero-kicker">✦ EARTH SCHOOL IN REAL LIFE ✦</p>
+        <h1>LOVE STORM RETREATS</h1>
+        <p className="hero-subheadline">
+          A real-world extension of EARTH SCHOOL for sensitive, creative, neurodivergent souls
+          ready to reconnect with themselves.
         </p>
-        <div className="actions">
+        <div className="hero-actions">
           <button className="btn btn-primary">Join the Interest List</button>
-          <button className="btn btn-secondary">Learn More</button>
+          <button className="btn btn-secondary">Explore the Experience</button>
+        </div>
+        <div className="storm-icons" aria-hidden="true">
+          <span>⚡</span>
+          <span>♡</span>
+          <span>⚡</span>
         </div>
       </section>
 
-      <section className="container card">
-        <h2>What It Is</h2>
+      <section className="container glass-section vibe">
+        <h2>Not a typical retreat.</h2>
         <p>
-          Love Storm Retreats is a heart-led retreat experience blending rest, creativity,
-          spirituality, nervous system support, community, music, movement, reflection, and joy.
+          This is a calm, sensory-aware, spiritually grounded experience designed for people who
+          feel deeply, think differently, and are ready for peace, light, and levity.
         </p>
       </section>
 
-      <section className="container card">
-        <h2>Who It’s For</h2>
-        <ul className="bullet-list">
-          {forWho.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="container card">
+      <section className="container glass-section">
         <h2>The Experience</h2>
-        <div className="grid">
+        <div className="experience-grid">
           {experienceCards.map((card) => (
-            <article key={card} className="exp-card">
-              <p>{card}</p>
+            <article key={card.title} className="experience-card">
+              <h3>{card.title}</h3>
+              <p>{card.copy}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="container card">
-        <h2>Coming Soon</h2>
+      <section className="container glass-section earth-school">
+        <h2>From EARTH SCHOOL to embodied life</h2>
         <p>
-          Our first Love Storm Retreat is being designed now. Join the interest list to receive
-          updates, early access, and retreat details.
+          Love Storm Retreats brings the EARTH SCHOOL philosophy into the physical world: you are
+          a spiritual being having a temporary human experience. Here, that truth becomes felt —
+          in your body, your relationships, your creativity, and your capacity to be fully alive.
         </p>
       </section>
 
-      <section className="container card cta-footer">
-        <h2>Come as you are.</h2>
-        <p>This is a space for love, light, laughter, and nervous system-safe connection.</p>
-        <button className="btn btn-primary">Join the Interest List</button>
+      <section className="container glass-section interest">
+        <h2>Stay close to the next retreat</h2>
+        <p>Be first to hear dates, locations, and gentle updates as Love Storm Retreats unfolds.</p>
+        <form className="interest-form" action="#">
+          <label htmlFor="email" className="sr-only">
+            Email address
+          </label>
+          <input id="email" type="email" placeholder="Enter your email" />
+          <button className="btn btn-primary" type="submit">
+            Notify Me
+          </button>
+        </form>
       </section>
+
+      <footer className="container footer">Love Storm Retreats • Peace, light, and levity ☮️</footer>
     </main>
   );
 }
